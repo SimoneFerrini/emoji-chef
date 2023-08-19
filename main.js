@@ -74,9 +74,10 @@ async function createRecipe() {
         messages: [{
             role: 'user',
             content: prompt
-        }]
+        }],
+        temperature: 0.7
     });
-
+    
     const recipe = JSON.parse(recipeResponse.choices[0].message.content);
 
     loading.classList.add('hidden');
@@ -88,9 +89,9 @@ async function createRecipe() {
     <p>${recipe.istruzioni}</p>`;
 
     const imageResponse =  await makeRequest(OPENAI.IMAGE_ENDPOINT, {
-        prompt: recipe.titolo,
+        prompt: `Crea una immagine per questa ricetta: ${recipe.titolo}`,
         n: 1,
-        size: '450x450'
+        size: '512x512'
     });
 
     const imageUrl = imageResponse.data[0].url;
@@ -119,6 +120,6 @@ async function makeRequest(endpoint, payload) {
         body: JSON.stringify(payload)
     });
 
-    const json = response.json();
+    const json = await response.json();
     return json;
 }
