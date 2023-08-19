@@ -6,8 +6,8 @@
 
 html {
     font-family: 'Space Grotesk', sans-serif;
-    background-color: #ffaafb;
-    color: #1212b2;
+    background-color: #383838;
+    color: dodgerblue;
     line-height: 1.2;
     text-align: center;
 }
@@ -29,12 +29,12 @@ p {
 }
 
 button {
-    background-color: #1212b2;
+    background-color: black;
     padding: 12px 24px;
-    color: white;
+    color: dodgerblue;
     font-size: 20px;
     font-weight: 700;
-    border: none;
+    border: 1px solid dodgerblue;
     border-radius: 20px;
 }
 
@@ -43,9 +43,10 @@ img {
 }
 
 header {
-    background-color: #1212b2;
+    background-color: black;
     padding: 32px 32px 0 32px;
-    color: #ffaafb;
+    color: dodgerblue;
+    border-bottom: 1px solid dodgerblue;
 }
 
 header .logo {
@@ -75,10 +76,10 @@ header .logo {
 .ingredient {
     width: 80px;
     height: 80px;
-    background-color: #a1d2ff;
+    background-color: black;
     font-size: 40px;
     line-height: 2;
-    border: 2px solid #1212b2;
+    border: 2px solid dodgerblue;
     border-radius: 20px;
     cursor: pointer;
     animation: pop-effect 0.4s ease-out;
@@ -86,7 +87,7 @@ header .logo {
 
 .bowl {
     display: flex;
-    border: 2px solid #2619aa;
+    border: 2px solid dodgerblue;
     border-radius: 16px;
     overflow: hidden;
 }
@@ -96,16 +97,16 @@ header .logo {
     padding: 12px;
     font-size: 46px;
     font-weight: 700;
-    color: #a1d2ff;
-    background-color: white;
+    color: dodgerblue;
+    background-color: black;
 }
 
 .bowl-slot:first-child {
-    border-right: 2px solid #2619aa;
+    border-right: 2px solid dodgerblue;
 }
 
 .bowl-slot:last-child {
-    border-left: 2px solid #2619aa;
+    border-left: 2px solid dodgerblue;
 }
 
 .loading {
@@ -119,13 +120,13 @@ header .logo {
     bottom: 0;
     left: 0;
     z-index: 1;
-    background-color: rgba(255, 170, 251, 0.85);
+    background-color: rgba(50, 50, 50, 0.85);
 }
 
 .loading-message {
     font-size: 24px;
     font-weight: 700;
-    color: #2619aa;
+    color: dodgerblue;
 }
 
 .modal {
@@ -136,7 +137,8 @@ header .logo {
     left: 0;
     z-index: 1;
     padding: 24px;
-    background-color: rgba(255, 170, 251, 0.85);
+    background-color: rgba(50, 50, 50, 0.85);
+    color: #1212b2;
     overflow-y: auto;
     overscroll-behavior: contain;
 }
@@ -146,7 +148,7 @@ header .logo {
     max-width: 400px;
     margin: 24px auto;
     background-color: #ffffff;
-    border: 2px solid #1212b2;
+    border: 2px solid dodgerblue;
     animation: pop-effect 0.3s ease-out;
 }
 
@@ -171,7 +173,7 @@ header .logo {
     right: 12px;
     height: 36px;
     width: 36px;
-    background-color: #ffaafb;
+    background-color: #ffffff;
     border: 2px solid #1212b2;
     border-radius: 50%;
 }
