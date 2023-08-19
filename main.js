@@ -13,6 +13,8 @@ const cookButton = document.querySelector("#cook-btn");
 const loading = document.querySelector('.loading');
 const modal = document.querySelector('.modal');
 const recipeContent = document.querySelector('.modal-content');
+const recipeImage = document.querySelector('.modal-image');
+const modalClose = document.querySelector('.modal-close');
 
 let bowl = [];
 
@@ -22,6 +24,10 @@ ingredients.forEach(function (element) {
         addIngredient(element.innerText);
     });
 });
+
+modalClose.addEventListener('click', function (){
+    modal.classList.add('hidden');
+})
 
 cookButton.addEventListener('click', createRecipe);
 
@@ -76,7 +82,30 @@ async function createRecipe() {
     loading.classList.add('hidden');
     modal.classList.remove('hidden');
 
-    
+    recipeContent.innerHTML = `\
+    <h2>${recipe.titolo}</h2>
+    <p>${recipe.ingredienti}</p>
+    <p>${recipe.istruzioni}</p>`;
+
+    const imageResponse =  await makeRequest(OPENAI.IMAGE_ENDPOINT, {
+        prompt: recipe.titolo,
+        n: 1,
+        size: '450x450'
+    });
+
+    const imageUrl = imageResponse.data[0].url;
+    recipeImage.innerHTML = `<img src="${imageUrl}" alt="recipeImage" >`;
+    clearBowl();
+}
+
+function clearBowl(){
+    bowl = [];
+
+    bowlSlots.forEach(function (slot){
+        slot.innerText = '?';
+    });
+
+
 }
 
 async function makeRequest(endpoint, payload) {
